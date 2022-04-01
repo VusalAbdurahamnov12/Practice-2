@@ -12,3 +12,17 @@ C:\Users\tu7eay65k\source\repos\tttt\tttt\obj\Debug\netcoreapp3.1\tttt.csproj.Co
 C:\Users\tu7eay65k\source\repos\tttt\tttt\obj\Debug\netcoreapp3.1\tttt.dll
 C:\Users\tu7eay65k\source\repos\tttt\tttt\obj\Debug\netcoreapp3.1\tttt.pdb
 C:\Users\tu7eay65k\source\repos\tttt\tttt\obj\Debug\netcoreapp3.1\tttt.genruntimeconfig.cache
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\bin\Debug\netcoreapp3.1\tttt.exe
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\bin\Debug\netcoreapp3.1\tttt.deps.json
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\bin\Debug\netcoreapp3.1\tttt.runtimeconfig.json
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\bin\Debug\netcoreapp3.1\tttt.runtimeconfig.dev.json
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\bin\Debug\netcoreapp3.1\tttt.dll
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\bin\Debug\netcoreapp3.1\tttt.pdb
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\obj\Debug\netcoreapp3.1\tttt.csproj.AssemblyReference.cache
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\obj\Debug\netcoreapp3.1\tttt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\obj\Debug\netcoreapp3.1\tttt.AssemblyInfoInputs.cache
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\obj\Debug\netcoreapp3.1\tttt.AssemblyInfo.cs
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\obj\Debug\netcoreapp3.1\tttt.csproj.CoreCompileInputs.cache
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\obj\Debug\netcoreapp3.1\tttt.dll
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\obj\Debug\netcoreapp3.1\tttt.pdb
+C:\Users\sh13ld\Desktop\AccountInterface\clastask\tttt\obj\Debug\netcoreapp3.1\tttt.genruntimeconfig.cache

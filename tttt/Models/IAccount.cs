@@ -6,7 +6,7 @@ namespace tttt.Models
 {
     interface IAccount
     {
-        public bool PasswordChecker(string pass);
-        public void ShowInfo();
+        public static bool PasswordChecker(string pass) { return true; }
+        public static void ShowInfo() { }
     }
 }

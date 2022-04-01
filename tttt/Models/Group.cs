@@ -5,19 +5,17 @@ using tttt.Exceptions;
 
 namespace tttt.Models
 {
-    class Group
+    public class Group
     {
-        private int _studentLimit;
+        private static int _studentLimit;
         private string _GroupNo;
-        private bool _upper1 =false;
-        private bool _digit1 =false;
-        private bool _digit2 =false;
-        private bool _digit3 =false;
+        private static bool _upper1 =false;
 
-        public int StudentLimit { get { return _studentLimit; }
+
+        public static int StudentLimit { get { return _studentLimit; }
             set
             {
-                if (value > 5 || value < 18) _studentLimit = value;
+                if (value >= 5 && value <= 18) _studentLimit = value;
                 else throw new NotAvaiavleException("Limiti kecdiniz!");
             } 
         }
@@ -29,44 +27,61 @@ namespace tttt.Models
                 else throw new NotAvaiavleException("Limiti kecdiniz!");
             }
         }
-        private Student[] student = new Student[0];
-        public bool CheckGroupNo(string groupNo)
+        private static Student[] student = new Student[0];
+        public static bool CheckGroupNo(string groupNo)
         {
+            int _digit1 = 0;
             if (!String.IsNullOrEmpty(groupNo) && !String.IsNullOrWhiteSpace(groupNo) && groupNo.Length >= 5)
             {
                 int j = 1; //1 ci index
                 char[] charArr = groupNo.ToCharArray();
                 for (int i = 0; i < charArr.Length; i++)
                 {
-                    if (Char.IsUpper(charArr[i]) && Char.IsUpper(charArr[j])) return _upper1 = true;
-                    else if (Char.IsDigit(charArr[i])) return _digit1 = true;
-                    else if (Char.IsDigit(charArr[i])) return _digit2 = true;
-                    else if (Char.IsDigit(charArr[i])) return _digit3 = true;
-                    if (_upper1 == true && _digit1 == true && _digit2 == true && _digit3 == true) return true; break;
+                    if (Char.IsUpper(charArr[i]) && Char.IsUpper(charArr[j]))  _upper1 = true;
+                    else if (Char.IsDigit(charArr[i]))  _digit1++;
+                    if (_upper1 == true&& _digit1==3) return true;
                 }
-            }return false; throw new NotAvaiavleException("Grup nomresi sehvdir");
+            }
+            throw new NotAvaiavleException("Grup nomresi sehvdir");
 
         }
-        public void AddStudent(Student stu)
+        public static void AddStudent(Student stu)
         {
-            if (StudentLimit > student.Length)
-            {
                 Array.Resize(ref student, student.Length + 1);
-                student[student.Length + 1] = stu;
-            }
-            else throw new NotAvaiavleException("Limit kecildi");
+                student[student.Length -1] = stu;
         }
         public Group(string groupNo,int studentLimit)
         {
             GroupNo=groupNo;
             StudentLimit=studentLimit;
         }
-        public void GetAllStudents() 
+        public static void GetAllStudents() 
         {
             for (int i = 0; i < student.Length; i++)
             {
                 Console.WriteLine($"ID-{student[i].Id}\nFullname-{student[i].Fullname}\nPoint-{student[i].Point}");
             }
         }
+        public static bool CheckGroupLimit(int studentLimit)
+        {
+            if (studentLimit >= 5 && studentLimit <= 18)
+                return true;
+            throw new NotAvaiavleException("qrup 5-18 araliqda ol biler ");
+        }
+        public static Student[] studenst()
+        {
+             return student;
+        }
+        public static void StudenIdInfo(int id)
+        {
+            for (int i = 0; i < student.Length; i++)
+            {
+                if (id==i)
+                {
+                    Console.WriteLine($"ID-{student[i].Id}\nFullname-{student[i].Fullname}\nPoint-{student[i].Point}");
+                }
+            }
+        }
+
     }
 }

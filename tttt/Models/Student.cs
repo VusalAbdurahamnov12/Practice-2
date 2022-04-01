@@ -10,23 +10,21 @@ namespace tttt.Models
         private static int _id;
         public int Id { get; }
         private string _Fullname;
-        private int _Point;
+        private double _Point;
         public string Fullname
         {
             get { return _Fullname; }
             set
             {
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value)) _Fullname = value;
-                else throw new NotAvaiavleException("Bosluq daxil etmeyin!!");
             }
         }
-        public int Point
+        public double Point
         {
             get { return _Point; }
             set
             {
                 if (value >= 100) _Point = value;
-                else throw new NotAvaiavleException("100");
             }
         }
         static Student()
@@ -38,10 +36,14 @@ namespace tttt.Models
             _id++;
             Id = _id;
         }
-        public Student(string fullname,int point) :this()
+        public Student(string fullname, double point) :this()
         {
             Fullname = fullname;
             Point = point;
+        }
+        public void ShowInfo()
+        {
+            Console.WriteLine($"Id-{Id}\nFullname-{Fullname}\nPoint-{Point}");
         }
 
     }
