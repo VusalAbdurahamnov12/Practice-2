@@ -7,22 +7,23 @@ namespace tttt
     {
         static void Main(string[] args)
         {
-            int  expression =0;
+            int expression = 0;
+
             FullNameInput(out string fullname);
             MailInput(out string email);
-            PassInput(out string  pass);
+            PassInput(out string pass);
             User user1 = new User(email, pass, fullname);
             do
             {
-               Input:
-                try 
+            Input:
+                try
                 {
                     Console.WriteLine("[0]-Exit\n[1]-ShowInfo\n[2]-Create new group");
                     expression = Convert.ToInt32(Console.ReadLine());
                 }
-                catch (FormatException) 
+                catch (FormatException)
                 {
-                    Console.WriteLine("Dogru daxil edin:");
+                    Console.WriteLine("Dogru daxil edin: ");
                     goto Input;
                 }
                 switch (expression)
@@ -48,49 +49,63 @@ namespace tttt
                         // code block
                         break;
                 }
-            } while (expression!=0);
+            } while (expression != 0);
             do
             {
-                Console.WriteLine($"[0]-Quit\n[1]-Show all students\n[2]- Get student by id\n[3]-Add student");
-                expression=Convert.ToInt32(Console.ReadLine());
+            Iput:
+                try
+                {
+                    Console.WriteLine($"[0]-Quit\n[1]-Show all students\n[2]- Get student by id\n[3]-Add student ");
+                    expression = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Dogru daxil edin: ");
+                    goto Iput;
+                }
                 switch (expression)
                 {
                     case 1:
                         Console.Clear();
-                        StuInfos();
+                        Group.GetAllStudents();
                         break;
                     case 2:
+                    id:
                         Console.Clear();
                         StudenID(out int id);
-                        Group.StudenIdInfo(id);
+                        if (!Group.StudenIdInfo(id))
+                        {
+                            Console.WriteLine("Id ni dogru daxil edin");
+                            goto id;
+                        }
+                        else { Console.WriteLine(); }
                         break;
-                    case 3:
 
-                        Group:
+                    case 3:
+                    Group:
                         Console.Clear();
-                        try 
+                        try
                         {
                             FullNameInput(out fullname);
                             StudentPoint(out double point);
-                            Student st = new Student(fullname, point);
-                            Group.AddStudent(st);
+                            Student stu = new Student(fullname, point);
+                            Group.AddStudent(stu);
                         }
-                        catch (Exception ex) { Console.WriteLine(ex.Message);goto Group; }
-                        
+                        catch (Exception ex) { Console.WriteLine(ex.Message); goto Group; }
                         break;
                     default:
                         break;
                 }
-            } while (expression!=0);
+            } while (expression != 0);
 
         }
         //mail
         static void MailInput(out string mail)
         {
-            Mail:
+        Mail:
             try
             {
-                Console.WriteLine("Mail daxil edin");
+                Console.WriteLine("Mail daxil edin: ");
                 mail = Console.ReadLine();
                 if (String.IsNullOrEmpty(mail) || string.IsNullOrWhiteSpace(mail))
                 {
@@ -109,16 +124,17 @@ namespace tttt
         static void FullNameInput(out string Fullname)
         {
         FullName:
-            try 
+            try
             {
-                Console.WriteLine("Ad daxil edin");
+                Console.WriteLine("Ad daxil edin: ");
                 Fullname = Console.ReadLine();
                 if (String.IsNullOrEmpty(Fullname) || string.IsNullOrWhiteSpace(Fullname))
                 {
                     Console.WriteLine("Bosluq olmaz.");
                     goto FullName;
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 goto FullName;
@@ -128,8 +144,8 @@ namespace tttt
         //pass
         public static void PassInput(out string pass)
         {
-         Pass:
-            try 
+        Pass:
+            try
             {
                 Console.WriteLine("Parolu daxil edin");
                 pass = Console.ReadLine();
@@ -180,14 +196,14 @@ namespace tttt
             }
         }
         //sStudenInfo
-        static void  StuInfos()
-        {
-            foreach (var item in Group.)//edit!
-            {
-                Console.WriteLine($"ID-{item.Id}\nFulla Name{item.Fullname}\nPoint{item.Point}");
-            }
+        //static void  StuInfos()
+        //{
+        //    foreach (var item in Group.)//edit!
+        //    {
+        //        Console.WriteLine($"ID-{item.Id}\nFulla Name{item.Fullname}\nPoint{item.Point}");
+        //    }
 
-        }
+        //}
         //Find id  student
         static void StudenID(out int id)
         {
@@ -211,7 +227,7 @@ namespace tttt
             {
                 Console.Write("Bali daxil edin : ");
                 point = Convert.ToInt32(Console.ReadLine());
-                if (point<= 0 || point >= 100)
+                if (point <= 0 && point >= 100)
                     throw new NotAvaiavleException("Bal 0-100 arasi ola biler ");
             }
             catch (Exception ex)

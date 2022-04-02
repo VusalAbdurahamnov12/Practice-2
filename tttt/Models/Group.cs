@@ -68,10 +68,6 @@ namespace tttt.Models
                 return true;
             throw new NotAvaiavleException("qrup 5-18 araliqda ol biler ");
         }
-        public static Student[] studenst()
-        {
-             return student;
-        }
         public static void StudenIdInfo(int id)
         {
             for (int i = 0; i < student.Length; i++)
